@@ -14,8 +14,8 @@ class PayloadParser:
         map = ['round wins', 'mode', 'name', 'phase', 'round', 'ct score', 'ct consec. round loss', 'ct timeouts rem.', 'ct matches won', 't score', 't consec. round loss', 't timeouts rem.', 't matches won', 'matches to win series', 'spectators', 'souvenirs']
         round = ['phase']
         bomb = ['state', 'position', 'player']
-        player = ['kills', 'assists', 'deaths', 'mvps', 'score', 'spectating', 'position', 'forward', 'weapons', 'state', 'steamID', 'clan', 'name', 'observer slot', 'team', 'activity']
-        allplayers = ['steamID', 'clan', 'name', 'observer slot', 'team', 'kills', 'assists', 'deaths', 'mvps', 'score', 'health', 'armor', 'helmet','flashed', 'burning', 'money', 'round_kills', 'round_killhs', 'round_totaldmg', 'equip_value']
+        player = ['kills', 'assists', 'deaths', 'mvps', 'score', 'spectating', 'position', 'forward', 'weapons', 'state', 'steamID', 'name', 'observer slot', 'team', 'activity']
+        allplayers = ['steamID', 'name', 'observer slot', 'team', 'kills', 'assists', 'deaths', 'mvps', 'score', 'health', 'armor', 'helmet','flashed', 'burning', 'money', 'round_kills', 'round_killhs', 'round_totaldmg', 'equip_value']
 
         f = open('data_out.csv', 'w', newline='', encoding='utf-8')
         writer = csv.writer(f)
@@ -39,7 +39,8 @@ class PayloadParser:
         writer.writerow(map)
         writer.writerow([data['map']['round_wins'], data['map']['mode'], data['map']['name'], data['map']['phase'], data['map']['round'],
                          data['map']['team_ct']['score'], data['map']['team_ct']['consecutive_round_losses'], data['map']['team_ct']['timeouts_remaining'], data['map']['team_ct']['matches_won_this_series'],
-                         data['map']['team_t']['score'], data['map']['team_t']['consecutive_round_losses'], data['map']['team_t']['timeouts_remaining'], data['map']['team_t']['matches_won_this_series']])
+                         data['map']['team_t']['score'], data['map']['team_t']['consecutive_round_losses'], data['map']['team_t']['timeouts_remaining'], data['map']['team_t']['matches_won_this_series'],
+                         data['map']['num_matches_to_win_series'], data['map']['current_spectators'], data['map']['souvenirs_total']])
         writer.writerow([])
 
 
@@ -60,10 +61,8 @@ class PayloadParser:
         writer.writerow('observed player info')
         writer.writerow(player)
         writer.writerow([data['player']['match_stats']['kills'], data['player']['match_stats']['assists'], data['player']['match_stats']['deaths'], data['player']['match_stats']['mvps'], data['player']['match_stats']['score'],
-                         data['player']['spectarget'], data['player']['position'], data['player']['forward'], data['player']['spectarget'],
-                         data['player']['weapons'], data['player']['state'], data['player']['steamid']
-                            # , data['player']['clan']
-                            , data['player']['name'], data['player']['observer_slot'], data['player']['team'], data['player']['activity']])
+                         data['player']['spectarget'], data['player']['position'], data['player']['forward'],
+                         data['player']['weapons'], data['player']['state'], data['player']['steamid'], data['player']['name'], data['player']['observer_slot'], data['player']['team'], data['player']['activity']])
         writer.writerow([])
 
 
@@ -71,8 +70,8 @@ class PayloadParser:
         writer.writerow(allplayers)
 
         for playerID in data['allplayers']:
-            print(playerID)
-            writer.writerow([playerID, data['allplayers'][playerID]['name'], data['allplayers'][playerID]['name'], data['allplayers'][playerID]['observer_slot'], data['allplayers'][playerID]['team'],
+
+            writer.writerow([playerID, data['allplayers'][playerID]['name'], data['allplayers'][playerID]['observer_slot'], data['allplayers'][playerID]['team'],
                              data['allplayers'][playerID]['match_stats']['kills'], data['allplayers'][playerID]['match_stats']['assists'], data['allplayers'][playerID]['match_stats']['deaths'], data['allplayers'][playerID]['match_stats']['mvps'], data['allplayers'][playerID]['match_stats']['score'],
                              data['allplayers'][playerID]['state']['health'], data['allplayers'][playerID]['state']['armor'], data['allplayers'][playerID]['state']['helmet'],
                              data['allplayers'][playerID]['state']['flashed'], data['allplayers'][playerID]['state']['burning'], data['allplayers'][playerID]['state']['money'],
