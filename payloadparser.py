@@ -3,9 +3,11 @@ import json
 import csv
 from shutil import copyfile
 
-# A re-written funtion to manually build out a CSV that's simple to deal with from the user's side
+# A re-written function to manually build out a CSV that's simple to deal with from the user's side
 class PayloadParser:
     def parse_payload(self, payload, gamestate):
+
+        # print(payload)
 
         # Headers for each data group
 
@@ -15,7 +17,14 @@ class PayloadParser:
         round = ['phase']
         bomb = ['state', 'position', 'player']
         player = ['kills', 'assists', 'deaths', 'mvps', 'score', 'spectating', 'position', 'forward', 'weapons', 'state', 'steamID', 'name', 'observer slot', 'team', 'activity']
-        allplayers = ['steamID', 'name', 'observer slot', 'team', 'kills', 'assists', 'deaths', 'mvps', 'score', 'health', 'armor', 'helmet','flashed', 'burning', 'money', 'round_kills', 'round_killhs', 'round_totaldmg', 'equip_value']
+        allplayers = ['steamID', 'name', 'observer slot', 'team', 'kills', 'assists', 'deaths', 'mvps', 'score', 'health', 'armor', 'helmet','flashed', 'burning', 'money', 'round_kills', 'round_killhs', 'round_totaldmg', 'equip_value',
+                      'weapon 0 name', 'weapon 0 paintkit', 'weapon 0 type', 'weapon 0 state', 'weapon 0 max ammo', 'weapon 0 ammo reserve', 'weapon 0 state',
+                      'weapon 1 name', 'weapon 1 paintkit', 'weapon 1 type', 'weapon 1 ammo', 'weapon 1 max ammo', 'weapon 1 ammo reserve', 'weapon 1 state',
+                      'weapon 2 name', 'weapon 2 paintkit', 'weapon 2 type', 'weapon 2 ammo', 'weapon 2 max ammo', 'weapon 2 ammo reserve', 'weapon 2 state',
+                      'weapon 3 name', 'weapon 3 paintkit', 'weapon 3 type', 'weapon 3 state',
+                      'weapon 4 name', 'weapon 4 paintkit', 'weapon 4 type', 'weapon 4 state',
+                      'weapon 5 name', 'weapon 5 paintkit', 'weapon 5 type', 'weapon 5 state'
+                      ]
 
         f = open('data_out.csv', 'w', newline='', encoding='utf-8')
         writer = csv.writer(f)
@@ -71,11 +80,18 @@ class PayloadParser:
 
         for playerID in data['allplayers']:
 
-            writer.writerow([playerID, data['allplayers'][playerID]['name'], data['allplayers'][playerID]['observer_slot'], data['allplayers'][playerID]['team'],
+            allplayerRow = ([playerID, data['allplayers'][playerID]['name'], data['allplayers'][playerID]['observer_slot'], data['allplayers'][playerID]['team'],
                              data['allplayers'][playerID]['match_stats']['kills'], data['allplayers'][playerID]['match_stats']['assists'], data['allplayers'][playerID]['match_stats']['deaths'], data['allplayers'][playerID]['match_stats']['mvps'], data['allplayers'][playerID]['match_stats']['score'],
                              data['allplayers'][playerID]['state']['health'], data['allplayers'][playerID]['state']['armor'], data['allplayers'][playerID]['state']['helmet'],
                              data['allplayers'][playerID]['state']['flashed'], data['allplayers'][playerID]['state']['burning'], data['allplayers'][playerID]['state']['money'],
                              data['allplayers'][playerID]['state']['round_kills'], data['allplayers'][playerID]['state']['round_killhs'], data['allplayers'][playerID]['state']['round_totaldmg'], data['allplayers'][playerID]['state']['equip_value']])
+
+            for guns in data['allplayers'][playerID]['weapons']:
+                for gundata in data['allplayers'][playerID]['weapons'][guns]:
+                    allplayerRow.append(data['allplayers'][playerID]['weapons'][guns][gundata])
+
+            writer.writerow(allplayerRow)
+
 
         # print(data['allplayers'][playerID])
 
