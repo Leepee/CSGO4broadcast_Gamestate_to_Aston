@@ -473,7 +473,7 @@ class PayloadParser:
                 except ConnectionRefusedError:
                     print("I no server worky")
                     # If there's no connection, do this
-                    connectionOpen = True
+                    # connectionOpen = True
 
         else:
             sendCommand("end")
