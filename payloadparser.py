@@ -115,7 +115,6 @@ prevDataDict = \
      'PhaseTimer': '00.00', 'Phase': 'Starting', 'RoundNumber': '0', 'T1Wins': '0', 'T2Wins': '0',
 
      'bombPhase': 'empty', 'bombTimer': '00'
-
      }
 
 labelsDict = \
@@ -161,7 +160,17 @@ labelsDict = \
 
      'CT5Name': 'CT5Name', 'CT5Health': '100', 'CT5Kills': 'CT5Kills', 'CT5Deaths': 'CT5Deaths', 'CT5Money': 'CT5Money',
      'CT5Bigslot': 'none', 'CT5BombDefuser': 'none', 'CT5Armour': 'none',
-     'CT5Nadeslot1': 'none', 'CT5Nadeslot2': 'none', 'CT5Nadeslot3': 'none', 'CT5Nadeslot4': 'none'
+     'CT5Nadeslot1': 'none', 'CT5Nadeslot2': 'none', 'CT5Nadeslot3': 'none', 'CT5Nadeslot4': 'none',
+
+     'obsPlayerName': 'obsPlayerName', 'obsPlayerHealth': '100', 'obsPlayerKills': 'obsPlayerKills',
+     'obsPlayerDeaths': 'obsPlayerDeaths', 'obsPlayerMoney': 'obsPlayerMoney',
+     'obsPlayerBigslot': 'None', 'obsPlayerBombDefuser': 'None', 'obsPlayerArmour': 'None',
+     'obsPlayerNadeslot1': 'None', 'obsPlayerNadeslot2': 'None', 'obsPlayerNadeslot3': 'None',
+     'obsPlayerNadeslot4': 'None',
+
+     'PhaseTimer': '00.00', 'Phase': 'Starting', 'RoundNumber': '0', 'T1Wins': '0', 'T2Wins': '0',
+
+     'bombPhase': 'empty', 'bombTimer': '00'
      }
 
 commandDict = \
@@ -187,7 +196,17 @@ commandDict = \
      'CT2Money': 'TEXT_STRING',
      'CT2Bigslot': 'MAT_SELSURF', 'CT2BombDefuser': 'MAT_SELSURF', 'CT2Armour': 'MAT_SELSURF',
      'CT2Nadeslot1': 'MAT_SELSURF', 'CT2Nadeslot2': 'MAT_SELSURF', 'CT2Nadeslot3': 'MAT_SELSURF',
-     'CT2Nadeslot4': 'MAT_SELSURF'
+     'CT2Nadeslot4': 'MAT_SELSURF',
+
+     'obsPlayerName': 'obsPlayerName', 'obsPlayerHealth': '100', 'obsPlayerKills': 'obsPlayerKills',
+     'obsPlayerDeaths': 'obsPlayerDeaths', 'obsPlayerMoney': 'obsPlayerMoney',
+     'obsPlayerBigslot': 'None', 'obsPlayerBombDefuser': 'None', 'obsPlayerArmour': 'None',
+     'obsPlayerNadeslot1': 'None', 'obsPlayerNadeslot2': 'None', 'obsPlayerNadeslot3': 'None',
+     'obsPlayerNadeslot4': 'None',
+
+     'PhaseTimer': '00.00', 'Phase': 'Starting', 'RoundNumber': '0', 'T1Wins': '0', 'T2Wins': '0',
+
+     'bombPhase': 'empty', 'bombTimer': '00'
      }
 
 # allPlayerCommandsDict = \
@@ -342,6 +361,10 @@ class PayloadParser:
         if data.get("player").get("activity") == "playing":
             if connectionOpen:
 
+                # Wipe the data dictionary
+                for stuffToKill in dataDict:
+                    dataDict[stuffToKill] = 'none'
+
                 # Setting up some player identifiers (T1, CT4), and checking into player instances
                 Ts = 1
                 CTs = 1
@@ -429,7 +452,7 @@ class PayloadParser:
                         if data.get("allplayers").get(playerID).get('weapons').get(weapon).get('type') == 'C4':
                             dataDict[playerIndex + 'BombDefuser'] = 'bomb'
 
-                # entry gives key, iteerate through looking for changes in data
+                # entry gives key, iterate through looking for changes in data
                 for entry in dataDict:
                     if dataDict[entry] != prevDataDict[entry]:
                         try:
