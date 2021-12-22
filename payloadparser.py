@@ -209,110 +209,6 @@ commandDict = \
      'bombPhase': 'empty', 'bombTimer': '00'
      }
 
-# allPlayerCommandsDict = \
-#     {'T1Name': 'T1Name', 'T1Health': '100', 'T1Kills': 'T1Kills', 'T1Deaths': 'T1Deaths', 'T1Money': 'T1Money',
-#      'T1Bigslot': 'none', 'T1BombDefuser': 'none', 'T1Armour': 'none',
-#      'T1Nadeslot1': 'none', 'T1Nadeslot2': 'none', 'T1Nadeslot3': 'none', 'T1Nadeslot4': 'none',
-#
-#      'T2Name': 'T2Name', 'T2Health': '100', 'T2Kills': 'T2Kills', 'T2Deaths': 'T2Deaths', 'T2Money': 'T2Money',
-#      'T2Bigslot': 'none', 'T2BombDefuser': 'none', 'T2Armour': 'none',
-#      'T2Nadeslot1': 'none', 'T2Nadeslot2': 'none', 'T2Nadeslot3': 'none', 'T2Nadeslot4': 'none',
-#
-#      'T3Name': 'T3Name', 'T3Health': '100', 'T3Kills': 'T3Kills', 'T3Deaths': 'T3Deaths', 'T3Money': 'T3Money',
-#      'T3Bigslot': 'none', 'T3BombDefuser': 'none', 'T3Armour': 'none',
-#      'T3Nadeslot1': 'none', 'T3Nadeslot2': 'none', 'T3Nadeslot3': 'none', 'T3Nadeslot4': 'none',
-#
-#      'T4Name': 'T4Name', 'T4Health': '100', 'T4Kills': 'T4Kills', 'T4Deaths': 'T4Deaths', 'T4Money': 'T4Money',
-#      'T4Bigslot': 'none', 'T4BombDefuser': 'none', 'T4Armour': 'none',
-#      'T4Nadeslot1': 'none', 'T4Nadeslot2': 'none', 'T4Nadeslot3': 'none', 'T4Nadeslot4': 'none',
-#
-#      'T5Name': 'T5Name', 'T5Health': '100', 'T5Kills': 'T5Kills', 'T5Deaths': 'T5Deaths', 'T5Money': 'T5Money',
-#      'T5Bigslot': 'none', 'T5BombDefuser': 'none', 'T5Armour': 'none',
-#      'T5Nadeslot1': 'none', 'T5Nadeslot2': 'none', 'T5Nadeslot3': 'none', 'T5Nadeslot4': 'none',
-#
-#      'CT1Name': 'CT1Name', 'CT1Health': '100', 'CT1Kills': 'CT1Kills', 'CT1Deaths': 'CT1Deaths', 'CT1Money': 'CT1Money',
-#      'CT1Bigslot': 'none', 'CT1BombDefuser': 'none', 'CT1Armour': 'none',
-#      'CT1Nadeslot1': 'none', 'CT1Nadeslot2': 'none', 'CT1Nadeslot3': 'none', 'CT1Nadeslot4': 'none',
-#
-#      'CT2Name': 'CT2Name', 'CT2Health': '100', 'CT2Kills': 'CT2Kills', 'CT2Deaths': 'CT2Deaths', 'CT2Money': 'CT2Money',
-#      'CT2Bigslot': 'none', 'CT2BombDefuser': 'none', 'CT2Armour': 'none',
-#      'CT2Nadeslot1': 'none', 'CT2Nadeslot2': 'none', 'CT2Nadeslot3': 'none', 'CT2Nadeslot4': 'none',
-#
-#      'CT3Name': 'CT3Name', 'CT3Health': '100', 'CT3Kills': 'CT3Kills', 'CT3Deaths': 'CT3Deaths', 'CT3Money': 'CT3Money',
-#      'CT3Bigslot': 'none', 'CT3BombDefuser': 'none', 'CT3Armour': 'none',
-#      'CT3Nadeslot1': 'none', 'CT3Nadeslot2': 'none', 'CT3Nadeslot3': 'none', 'CT3Nadeslot4': 'none',
-#
-#      'CT4Name': 'CT4Name', 'CT4Health': '100', 'CT4Kills': 'CT4Kills', 'CT4Deaths': 'CT4Deaths', 'CT4Money': 'CT4Money',
-#      'CT4Bigslot': 'none', 'CT4BombDefuser': 'none', 'CT4Armour': 'none',
-#      'CT4Nadeslot1': 'none', 'CT4Nadeslot2': 'none', 'CT4Nadeslot3': 'none', 'CT4Nadeslot4': 'none',
-#
-#      'CT5Name': 'CT5Name', 'CT5Health': '100', 'CT5Kills': 'CT5Kills', 'CT5Deaths': 'CT5Deaths', 'CT5Money': 'CT5Money',
-#      'CT5Bigslot': 'none', 'CT5BombDefuser': 'none', 'CT5Armour': 'none',
-#      'CT5Nadeslot1': 'none', 'CT5Nadeslot2': 'none', 'CT5Nadeslot3': 'none', 'CT5Nadeslot4': 'none',
-#
-#      'obsPlayerName': 'obsPlayerName', 'obsPlayerHealth': '100', 'obsPlayerKills': 'obsPlayerKills',
-#      'obsPlayerDeaths': 'obsPlayerDeaths', 'obsPlayerMoney': 'obsPlayerMoney',
-#      'obsPlayerBigslot': 'None', 'obsPlayerBombDefuser': 'None', 'obsPlayerArmour': 'None',
-#      'obsPlayerNadeslot1': 'None', 'obsPlayerNadeslot2': 'None', 'obsPlayerNadeslot3': 'None',
-#      'obsPlayerNadeslot4': 'None',
-#
-#      'PhaseTimer': '00.00', 'Phase': 'Starting', 'RoundNumber': '0', 'T1Wins': '0', 'T2Wins': '0',
-#
-#      'bombPhase': 'empty', 'bombTimer': '00'
-#
-#      }
-#
-# prevAllPlayerCommandsDict = \
-#     {'T1Name': 'T1Name', 'T1Health': '100', 'T1Kills': 'T1Kills', 'T1Deaths': 'T1Deaths', 'T1Money': 'T1Money',
-#      'T1Bigslot': 'empty', 'T1BombDefuser': 'empty', 'T1Armour': 'empty',
-#      'T1Nadeslot1': 'empty', 'T1Nadeslot2': 'empty', 'T1Nadeslot3': 'empty', 'T1Nadeslot4': 'empty',
-#
-#      'T2Name': 'T2Name', 'T2Health': '100', 'T2Kills': 'T2Kills', 'T2Deaths': 'T2Deaths', 'T2Money': 'T2Money',
-#      'T2Bigslot': 'empty', 'T2BombDefuser': 'empty', 'T2Armour': 'empty',
-#      'T2Nadeslot1': 'empty', 'T2Nadeslot2': 'empty', 'T2Nadeslot3': 'empty', 'T2Nadeslot4': 'empty',
-#
-#      'T3Name': 'T3Name', 'T3Health': '100', 'T3Kills': 'T3Kills', 'T3Deaths': 'T3Deaths', 'T3Money': 'T3Money',
-#      'T3Bigslot': 'empty', 'T3BombDefuser': 'empty', 'T3Armour': 'empty',
-#      'T3Nadeslot1': 'empty', 'T3Nadeslot2': 'empty', 'T3Nadeslot3': 'empty', 'T3Nadeslot4': 'empty',
-#
-#      'T4Name': 'T4Name', 'T4Health': '100', 'T4Kills': 'T4Kills', 'T4Deaths': 'T4Deaths', 'T4Money': 'T4Money',
-#      'T4Bigslot': 'empty', 'T4BombDefuser': 'empty', 'T4Armour': 'empty',
-#      'T4Nadeslot1': 'empty', 'T4Nadeslot2': 'empty', 'T4Nadeslot3': 'empty', 'T4Nadeslot4': 'empty',
-#
-#      'T5Name': 'T5Name', 'T5Health': '100', 'T5Kills': 'T5Kills', 'T5Deaths': 'T5Deaths', 'T5Money': 'T5Money',
-#      'T5Bigslot': 'empty', 'T5BombDefuser': 'empty', 'T5Armour': 'empty',
-#      'T5Nadeslot1': 'empty', 'T5Nadeslot2': 'empty', 'T5Nadeslot3': 'empty', 'T5Nadeslot4': 'empty',
-#
-#      'CT1Name': 'CT1Name', 'CT1Health': '100', 'CT1Kills': 'CT1Kills', 'CT1Deaths': 'CT1Deaths', 'CT1Money': 'CT1Money',
-#      'CT1Bigslot': 'empty', 'CT1BombDefuser': 'empty', 'CT1Armour': 'empty',
-#      'CT1Nadeslot1': 'empty', 'CT1Nadeslot2': 'empty', 'CT1Nadeslot3': 'empty', 'CT1Nadeslot4': 'empty',
-#
-#      'CT2Name': 'CT2Name', 'CT2Health': '100', 'CT2Kills': 'CT2Kills', 'CT2Deaths': 'CT2Deaths', 'CT2Money': 'CT2Money',
-#      'CT2Bigslot': 'empty', 'CT2BombDefuser': 'empty', 'CT2Armour': 'empty',
-#      'CT2Nadeslot1': 'empty', 'CT2Nadeslot2': 'empty', 'CT2Nadeslot3': 'empty', 'CT2Nadeslot4': 'empty',
-#
-#      'CT3Name': 'CT3Name', 'CT3Health': '100', 'CT3Kills': 'CT3Kills', 'CT3Deaths': 'CT3Deaths', 'CT3Money': 'CT3Money',
-#      'CT3Bigslot': 'empty', 'CT3BombDefuser': 'empty', 'CT3Armour': 'empty',
-#      'CT3Nadeslot1': 'empty', 'CT3Nadeslot2': 'empty', 'CT3Nadeslot3': 'empty', 'CT3Nadeslot4': 'empty',
-#
-#      'CT4Name': 'CT4Name', 'CT4Health': '100', 'CT4Kills': 'CT4Kills', 'CT4Deaths': 'CT4Deaths', 'CT4Money': 'CT4Money',
-#      'CT4Bigslot': 'empty', 'CT4BombDefuser': 'empty', 'CT4Armour': 'empty',
-#      'CT4Nadeslot1': 'empty', 'CT4Nadeslot2': 'empty', 'CT4Nadeslot3': 'empty', 'CT4Nadeslot4': 'empty',
-#
-#      'CT5Name': 'CT5Name', 'CT5Health': '100', 'CT5Kills': 'CT5Kills', 'CT5Deaths': 'CT5Deaths', 'CT5Money': 'CT5Money',
-#      'CT5Bigslot': 'empty', 'CT5BombDefuser': 'empty', 'CT5Armour': 'empty',
-#      'CT5Nadeslot1': 'empty', 'CT5Nadeslot2': 'empty', 'CT5Nadeslot3': 'empty', 'CT5Nadeslot4': 'empty'
-#      }
-
-# roundInfoDict = {'PhaseTimer': '00.00', 'Phase': 'Starting', 'RoundNumber': '0', 'T1Wins': '0', 'T2Wins': '0'}
-#
-# observedPlayerDict = {
-#     'obsPlayerName': 'obsPlayerName', 'obsPlayerHealth': '100', 'obsPlayerKills': 'obsPlayerKills',
-#     'obsPlayerDeaths': 'obsPlayerDeaths', 'obsPlayerMoney': 'obsPlayerMoney',
-#     'obsPlayerBigslot': 'None', 'obsPlayerBombDefuser': 'None', 'obsPlayerArmour': 'None',
-#     'obsPlayerNadeslot1': 'None', 'obsPlayerNadeslot2': 'None', 'obsPlayerNadeslot3': 'None',
-#     'obsPlayerNadeslot4': 'None'}
-
 commandString = ''
 
 try:
@@ -427,6 +323,8 @@ class PayloadParser:
 
                     for weapon in data.get("allplayers").get(playerID).get('weapons'):
 
+                        print(data.get("allplayers").get(playerID).get('weapons').get(weapon).get('type'))
+
                         # First lets see if they have a pistol. If so, set that to the bigslot
                         if data.get("allplayers").get(playerID).get('weapons').get(weapon).get('type') == 'Pistol':
                             dataDict[playerIndex + 'Bigslot'] = \
@@ -436,9 +334,14 @@ class PayloadParser:
                         # If they have a rifle, shotgun, or SMG then place in the 'bigslot' (replaces pistol)
                         elif data.get("allplayers").get(playerID).get('weapons').get(weapon).get('type') == 'Shotgun' \
                                 or data.get("allplayers").get(playerID).get('weapons').get(weapon).get(
-                            'type') == 'Rifle' \
+                                    'type') == 'Rifle' \
                                 or data.get("allplayers").get(playerID).get('weapons').get(weapon).get(
-                            'type') == 'Submachine Gun':
+                                    'type') == 'Submachine Gun'\
+                                or data.get("allplayers").get(playerID).get('weapons').get(weapon).get(
+                                    'type') == 'SniperRifle' \
+                                or data.get("allplayers").get(playerID).get('weapons').get(weapon).get(
+                                    'type') == 'Machine Gun':
+
                             dataDict[playerIndex + 'Bigslot'] = \
                                 data.get("allplayers").get(playerID).get('weapons').get(weapon).get('name')
 
@@ -464,23 +367,6 @@ class PayloadParser:
 
                 prevDataDict = dict(dataDict)
 
-                # for entry in allPlayerCommandsDict:
-                #     try:
-                #         allPlayerCommandsDict[entry] = baseCommand.format(allPlayerLabelsDict[entry],
-                #                                                           allPlayerTypeDict[entry],
-                #                                                           allPlayerDataDict[entry])
-                #     # Exception here ignores players not catered for in the layout (key doesn't exist)
-                #     except KeyError:
-                #         pass
-                #
-                #     # Check if the command entry is new, and if it is, add it to the
-                #     if allPlayerCommandsDict[entry] != prevAllPlayerCommandsDict[entry]:
-                #         # print(allPlayerCommandsDict[entry] + prevAllPlayerCommandsDict[entry])
-                #         commandString = commandString + allPlayerCommandsDict[entry]
-                #         # prevAllPlayerCommandsDict[entry] = allPlayerCommandsDict[entry]
-                # prevAllPlayerCommandsDict = dict(allPlayerCommandsDict)
-
-                # After all the data is found and only the different commands are added to the sting, send.
                 try:
                     if commandString != "":
                         sendCommand(commandString)
@@ -496,7 +382,7 @@ class PayloadParser:
                 except ConnectionRefusedError:
                     print("I no server worky")
                     # If there's no connection, do this
-                    # connectionOpen = True
+                    connectionOpen = True
 
         else:
             sendCommand("end")
