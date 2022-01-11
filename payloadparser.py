@@ -338,8 +338,10 @@ class PayloadParser:
                         dataDict['obsPlayerNadeslot' + str(nadeSlot)] = \
                             data.get("player").get('weapons').get(weapon).get('name')
                         nadeSlot = nadeSlot + 1
-                    elif data.get("player").get('weapons').get(weapon).get('type') == 'C4':
+                    if data.get("player").get('weapons').get(weapon).get('type') == 'C4':
                         dataDict['obsPlayerBombDefuser'] = 'bomb'
+                    else:
+                        dataDict['obsPlayerBombDefuser'] = 'none'
 
                 # Setting up some player identifiers (T1, CT4), and checking into player instances
                 Ts = 1
@@ -347,8 +349,6 @@ class PayloadParser:
 
                 # Iterate through the allplayers and find the needed data
                 for playerID in data['allplayers']:
-
-
 
                     # Find the team of the players, so we can increment through them (CT1, T3 etc.)
                     playerIndex = data.get("allplayers").get(playerID).get("team")
@@ -361,11 +361,11 @@ class PayloadParser:
                         playerIndex = playerIndex + str(CTs)
                         CTs = CTs + 1
 
-                        # As it's team specific, we see if the CT has a defuse kit (don't be a loser...)
-                        if data.get("allplayers").get(playerID).get('state').get("defusekit") == True:
-                            dataDict[playerIndex + 'BombDefuser'] = 'defuser'
-                        else:
-                            dataDict[playerIndex + 'BombDefuser'] = 'none'
+                    # As it's team specific, we see if the CT has a defuse kit (don't be a loser...)
+                    if data.get("allplayers").get(playerID).get('state').get("defusekit") == True:
+                        dataDict[playerIndex + 'BombDefuser'] = 'defuser'
+                    else:
+                        dataDict[playerIndex + 'BombDefuser'] = 'none'
 
                     # Let's grab some data using this player identifier.
 
@@ -434,6 +434,8 @@ class PayloadParser:
                         # Does this player have the bomb?
                         if data.get("allplayers").get(playerID).get('weapons').get(weapon).get('type') == 'C4':
                             dataDict[playerIndex + 'BombDefuser'] = 'bomb'
+                        else:
+                            dataDict[playerIndex + 'BombDefuser'] = 'none'
 
                 # entry gives key, iterate through looking for changes in data
                 for entry in dataDict:
