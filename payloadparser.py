@@ -257,7 +257,7 @@ def letDyviKnow():
 
     # Make a request
     try:
-        my_request = requests.get(dyvi_URL, timeout=0.001)
+        my_request = requests.get(dyvi_URL.format(observed_player_name), timeout=0.001)
     except requests.exceptions.ConnectTimeout:
         pass
 
@@ -458,13 +458,6 @@ class PayloadParser:
                 # If player has changed, format the URL and send it to the vision mixer
                 if observed_player_name != prev_observed_player_name and observed_player_name is not None:
                     letDyviKnow()
-                    # greenlet = gevent.spawn(letDyviKnow())
-                    # greenlet.start()
-                    # thread = Thread(target=letDyviKnow())
-                    # thread.start()
-
-                    # thread.join()
-                    # print("Thread done")
 
             else:
                 try:
@@ -476,8 +469,6 @@ class PayloadParser:
 
                     # If there's no connection, do this
                     connectionOpen = True
-
-
 
         else:
             sendCommand("end")
