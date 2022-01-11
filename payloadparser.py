@@ -1,11 +1,20 @@
 import json
+import requests
 import socket
 
-host = "127.0.0.1"
-# host = "81.96.9.95"
+# Update the aston machine IP here.
+aston_IP = "127.0.0.1"
 port = 5123
-
 connectionOpen = False
+
+# Update the Dyvi IP here
+dyvi_URL = "http://10.143.83.157:8090/recall_macro?macro={0}"
+
+# variables to send to Dyvi
+observed_player_name = "None"
+prev_observed_player_name = "Nothin."
+
+# Player names: "Shroud Socks", "Chiken", "Leeroy Jenkins", "FPS Doug"
 
 baseCommand = """itemset("{0}", "{1}", "{2}");"""
 
@@ -214,7 +223,7 @@ commandString = ''
 
 try:
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect((host, port))
+    s.connect((aston_IP, port))
     connectionOpen = True
 except ConnectionRefusedError:
     print("I no server worky")
@@ -238,13 +247,38 @@ def sendCommand(commands_to_send):
         pass
 
 
+def letDyviKnow():
+    global prev_observed_player_name, observed_player_name
+
+    # Format URL
+    dyvi_URL.format(observed_player_name)
+
+    print("observed player is now " + observed_player_name + ", sending to Dyvi")
+
+    # Make a request
+    try:
+        my_request = requests.get(dyvi_URL, timeout=0.001)
+    except requests.exceptions.ConnectTimeout:
+        pass
+
+    # Capture and print the reply
+    # reply = my_request.text
+    # print(reply)
+
+    prev_observed_player_name = observed_player_name
+
+
 # A re-written function to send the data to Aston
 class PayloadParser:
 
     @staticmethod
     def parse_payload(payload, gamestate):
 
-        global prevAllPlayerCommandsDict, allPlayerCommandsDict, commandString, connectionOpen, prevDataDict, dataDict
+        global prevAllPlayerCommandsDict, allPlayerCommandsDict, commandString, connectionOpen, prevDataDict, dataDict,\
+            prev_observed_player_name, observed_player_name
+
+        global observed_player_name, prev_observed_player_name
+
 
         # Full data dump for debugging:
         # with open('data.json', 'w', encoding='utf-8') as f:
@@ -275,6 +309,7 @@ class PayloadParser:
 
                 # Get a load of observed player data
                 dataDict['obsPlayerName'] = data.get('player').get('name')
+                observed_player_name = data.get('player').get('name')
                 dataDict['obsPlayerHealth'] = data.get('player').get('state').get('health')
                 dataDict['obsPlayerMoney'] = data.get('player').get('state').get('money')
                 dataDict['obsPlayerKills'] = data.get('player').get('match_stats').get('kills')
@@ -312,6 +347,8 @@ class PayloadParser:
 
                 # Iterate through the allplayers and find the needed data
                 for playerID in data['allplayers']:
+
+
 
                     # Find the team of the players, so we can increment through them (CT1, T3 etc.)
                     playerIndex = data.get("allplayers").get(playerID).get("team")
@@ -417,16 +454,30 @@ class PayloadParser:
                     print("Command was empty")
 
                 commandString = ''
+
+                # If player has changed, format the URL and send it to the vision mixer
+                if observed_player_name != prev_observed_player_name and observed_player_name is not None:
+                    letDyviKnow()
+                    # greenlet = gevent.spawn(letDyviKnow())
+                    # greenlet.start()
+                    # thread = Thread(target=letDyviKnow())
+                    # thread.start()
+
+                    # thread.join()
+                    # print("Thread done")
+
             else:
                 try:
                     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                    s.connect((host, port))
+                    s.connect((aston_IP, port))
                     connectionOpen = True
                 except ConnectionRefusedError:
                     print("I no server worky")
 
                     # If there's no connection, do this
-                    # connectionOpen = True
+                    connectionOpen = True
+
+
 
         else:
             sendCommand("end")
